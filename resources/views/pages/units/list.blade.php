@@ -71,6 +71,7 @@ e.g $arrDataFromDb = $comp_model->fetchData(); //function name
                                                 <th class="td-name" > {{ __('name') }}</th>
                                                 <th class="td-symbol" > {{ __('symbol') }}</th>
                                                 <th class="td-status" > {{ __('status') }}</th>
+                                                <th class="td-company_id" > {{ __('companyId') }}</th>
                                                 <th class="td-btn"></th>
                                             </tr>
                                         </thead>
@@ -108,6 +109,9 @@ e.g $arrDataFromDb = $comp_model->fetchData(); //function name
                                             </td>
                                             <td class="td-status">
                                                 <?php echo  $data['status'] ; ?>
+                                            </td>
+                                            <td class="td-company_id">
+                                                <?php echo  $data['company_id'] ; ?>
                                             </td>
                                             <!--PageComponentEnd-->
                                             <td class="td-btn">

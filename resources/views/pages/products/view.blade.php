@@ -46,58 +46,16 @@ e.g $arrDataFromDb = $comp_model->fetchData(); //function name
                             $counter++;
                         ?>
                         <div id="page-main-content" class=" px-3 mb-3">
-                            <div class="row gutter-lg ">
-                                <div class="col">
-                                    <div class="page-data">
-                                        <!--PageComponentStart-->
-                                        <div class="mb-3 row row gutter-lg">
-                                            <div class=" col-12 col-md-4">
-                                                <div class="bg-light mb-3 card-1 p-2 border rounded">
-                                                    <div class="row align-items-center">
-                                                        <div class="col">
-                                                            <small class="text-muted">{{ __('id') }}</small>
-                                                            <div class="fw-bold">
-                                                                <?php echo  $data['id'] ; ?>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class=" col-12 col-md-4">
-                                                <div class="bg-light mb-3 card-1 p-2 border rounded">
-                                                    <div class="row align-items-center">
-                                                        <div class="col">
-                                                            <small class="text-muted">{{ __('companyId') }}</small>
-                                                            <div class="fw-bold">
-                                                                <a size="sm" class="btn btn-sm btn btn-secondary page-modal" href="<?php print_link("companies/view/$data[company_id]?subpage=1") ?>">
-                                                                <i class="material-icons">visibility</i> <?php echo "Companies Detail" ?>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class=" col-12 col-md-4">
-                                            <div class="bg-light mb-3 card-1 p-2 border rounded">
-                                                <div class="row align-items-center">
-                                                    <div class="col">
-                                                        <small class="text-muted">{{ __('name') }}</small>
-                                                        <div class="fw-bold">
-                                                            <?php echo  $data['name'] ; ?>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class=" col-12 col-md-4">
-                                            <div class="bg-light mb-3 card-1 p-2 border rounded">
-                                                <div class="row align-items-center">
-                                                    <div class="col">
-                                                        <small class="text-muted">{{ __('category') }}</small>
-                                                        <div class="fw-bold">
-                                                            <a size="sm" class="btn btn-sm btn btn-secondary page-modal" href="<?php print_link("product_categories/view/$data[category]?subpage=1") ?>">
-                                                            <i class="material-icons">visibility</i> <?php echo "Product Categories Detail" ?>
-                                                        </a>
+                            <div class="page-data">
+                                <!--PageComponentStart-->
+                                <div class="mb-3 row row gutter-lg">
+                                    <div class=" col-12 col-md-4">
+                                        <div class="bg-light mb-3 card-1 p-2 border rounded">
+                                            <div class="row align-items-center">
+                                                <div class="col">
+                                                    <small class="text-muted">{{ __('id') }}</small>
+                                                    <div class="fw-bold">
+                                                        <?php echo  $data['id'] ; ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -107,108 +65,10 @@ e.g $arrDataFromDb = $comp_model->fetchData(); //function name
                                         <div class="bg-light mb-3 card-1 p-2 border rounded">
                                             <div class="row align-items-center">
                                                 <div class="col">
-                                                    <small class="text-muted">{{ __('image') }}</small>
+                                                    <small class="text-muted">{{ __('companyId') }}</small>
                                                     <div class="fw-bold">
-                                                        <?php 
-                                                            Html :: page_img($data['image'], 'auto', 'auto', "", 1); 
-                                                        ?>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class=" col-12 col-md-4">
-                                        <div class="bg-light mb-3 card-1 p-2 border rounded">
-                                            <div class="row align-items-center">
-                                                <div class="col">
-                                                    <small class="text-muted">{{ __('mfgDate') }}</small>
-                                                    <div class="fw-bold">
-                                                        <?php echo  $data['mfg_date'] ; ?>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class=" col-12 col-md-4">
-                                        <div class="bg-light mb-3 card-1 p-2 border rounded">
-                                            <div class="row align-items-center">
-                                                <div class="col">
-                                                    <small class="text-muted">{{ __('expDate') }}</small>
-                                                    <div class="fw-bold">
-                                                        <?php echo  $data['exp_date'] ; ?>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class=" col-12 col-md-4">
-                                        <div class="bg-light mb-3 card-1 p-2 border rounded">
-                                            <div class="row align-items-center">
-                                                <div class="col">
-                                                    <small class="text-muted">{{ __('qty') }}</small>
-                                                    <div class="fw-bold">
-                                                        <?php echo  $data['qty'] ; ?>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class=" col-12 col-md-4">
-                                        <div class="bg-light mb-3 card-1 p-2 border rounded">
-                                            <div class="row align-items-center">
-                                                <div class="col">
-                                                    <small class="text-muted">{{ __('sellingPrice') }}</small>
-                                                    <div class="fw-bold">
-                                                        <?php echo  $data['selling_price'] ; ?>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class=" col-12 col-md-4">
-                                        <div class="bg-light mb-3 card-1 p-2 border rounded">
-                                            <div class="row align-items-center">
-                                                <div class="col">
-                                                    <small class="text-muted">{{ __('purchasePrice') }}</small>
-                                                    <div class="fw-bold">
-                                                        <?php echo  $data['purchase_price'] ; ?>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class=" col-12 col-md-4">
-                                        <div class="bg-light mb-3 card-1 p-2 border rounded">
-                                            <div class="row align-items-center">
-                                                <div class="col">
-                                                    <small class="text-muted">{{ __('deadStock') }}</small>
-                                                    <div class="fw-bold">
-                                                        <?php echo  $data['dead_stock'] ; ?>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class=" col-12 col-md-4">
-                                        <div class="bg-light mb-3 card-1 p-2 border rounded">
-                                            <div class="row align-items-center">
-                                                <div class="col">
-                                                    <small class="text-muted">{{ __('isActive') }}</small>
-                                                    <div class="fw-bold">
-                                                        <?php echo  $data['is_active'] ; ?>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class=" col-12 col-md-4">
-                                        <div class="bg-light mb-3 card-1 p-2 border rounded">
-                                            <div class="row align-items-center">
-                                                <div class="col">
-                                                    <small class="text-muted">{{ __('userId') }}</small>
-                                                    <div class="fw-bold">
-                                                        <a size="sm" class="btn btn-sm btn btn-secondary page-modal" href="<?php print_link("users/view/$data[user_id]?subpage=1") ?>">
-                                                        <i class="material-icons">visibility</i> <?php echo "Users Detail" ?>
+                                                        <a size="sm" class="btn btn-sm btn btn-secondary page-modal" href="<?php print_link("companies/view/$data[company_id]?subpage=1") ?>">
+                                                        <i class="material-icons">visibility</i> <?php echo "Companies Detail" ?>
                                                     </a>
                                                 </div>
                                             </div>
@@ -219,36 +79,164 @@ e.g $arrDataFromDb = $comp_model->fetchData(); //function name
                                     <div class="bg-light mb-3 card-1 p-2 border rounded">
                                         <div class="row align-items-center">
                                             <div class="col">
-                                                <small class="text-muted">{{ __('unit') }}</small>
+                                                <small class="text-muted">{{ __('name') }}</small>
                                                 <div class="fw-bold">
-                                                    <a size="sm" class="btn btn-sm btn btn-secondary page-modal" href="<?php print_link("units/view/$data[unit]?subpage=1") ?>">
-                                                    <i class="material-icons">visibility</i> <?php echo "Units Detail" ?>
+                                                    <?php echo  $data['name'] ; ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class=" col-12 col-md-4">
+                                    <div class="bg-light mb-3 card-1 p-2 border rounded">
+                                        <div class="row align-items-center">
+                                            <div class="col">
+                                                <small class="text-muted">{{ __('category') }}</small>
+                                                <div class="fw-bold">
+                                                    <a size="sm" class="btn btn-sm btn btn-secondary page-modal" href="<?php print_link("product_categories/view/$data[category]?subpage=1") ?>">
+                                                    <i class="material-icons">visibility</i> <?php echo "Product Categories Detail" ?>
                                                 </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class=" col-12 col-md-4">
+                                <div class="bg-light mb-3 card-1 p-2 border rounded">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <small class="text-muted">{{ __('image') }}</small>
+                                            <div class="fw-bold">
+                                                <?php 
+                                                    Html :: page_img($data['image'], 'auto', 'auto', "", 1); 
+                                                ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" col-12 col-md-4">
+                                <div class="bg-light mb-3 card-1 p-2 border rounded">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <small class="text-muted">{{ __('mfgDate') }}</small>
+                                            <div class="fw-bold">
+                                                <?php echo  $data['mfg_date'] ; ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" col-12 col-md-4">
+                                <div class="bg-light mb-3 card-1 p-2 border rounded">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <small class="text-muted">{{ __('expDate') }}</small>
+                                            <div class="fw-bold">
+                                                <?php echo  $data['exp_date'] ; ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" col-12 col-md-4">
+                                <div class="bg-light mb-3 card-1 p-2 border rounded">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <small class="text-muted">{{ __('qty') }}</small>
+                                            <div class="fw-bold">
+                                                <?php echo  $data['qty'] ; ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" col-12 col-md-4">
+                                <div class="bg-light mb-3 card-1 p-2 border rounded">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <small class="text-muted">{{ __('sellingPrice') }}</small>
+                                            <div class="fw-bold">
+                                                <?php echo  $data['selling_price'] ; ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" col-12 col-md-4">
+                                <div class="bg-light mb-3 card-1 p-2 border rounded">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <small class="text-muted">{{ __('purchasePrice') }}</small>
+                                            <div class="fw-bold">
+                                                <?php echo  $data['purchase_price'] ; ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" col-12 col-md-4">
+                                <div class="bg-light mb-3 card-1 p-2 border rounded">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <small class="text-muted">{{ __('deadStock') }}</small>
+                                            <div class="fw-bold">
+                                                <?php echo  $data['dead_stock'] ; ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" col-12 col-md-4">
+                                <div class="bg-light mb-3 card-1 p-2 border rounded">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <small class="text-muted">{{ __('isActive') }}</small>
+                                            <div class="fw-bold">
+                                                <?php echo  $data['is_active'] ; ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" col-12 col-md-4">
+                                <div class="bg-light mb-3 card-1 p-2 border rounded">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <small class="text-muted">{{ __('userId') }}</small>
+                                            <div class="fw-bold">
+                                                <a size="sm" class="btn btn-sm btn btn-secondary page-modal" href="<?php print_link("users/view/$data[user_id]?subpage=1") ?>">
+                                                <i class="material-icons">visibility</i> <?php echo "Users Detail" ?>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <!--PageComponentEnd-->
-                        <div class="d-flex gap-1 justify-content-start">
-                            <a class="btn btn-sm btn-success has-tooltip "   title="{{ __('edit') }}" href="<?php print_link("products/edit/$rec_id"); ?>" >
-                            <i class="material-icons">edit</i> {{ __('edit') }}
-                        </a>
-                        <a class="btn btn-sm btn-danger has-tooltip record-delete-btn" data-prompt-msg="{{ __('promptDeleteRecord') }}" data-display-style="modal" title="{{ __('delete') }}" href="<?php print_link("products/delete/$rec_id?redirect=products"); ?>" >
-                        <i class="material-icons">delete_sweep</i> {{ __('delete') }}
-                    </a>
+                        <div class=" col-12 col-md-4">
+                            <div class="bg-light mb-3 card-1 p-2 border rounded">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <small class="text-muted">{{ __('unit') }}</small>
+                                        <div class="fw-bold">
+                                            <a size="sm" class="btn btn-sm btn btn-secondary page-modal" href="<?php print_link("units/view/$data[unit]?subpage=1") ?>">
+                                            <i class="material-icons">visibility</i> <?php echo "Units Detail" ?>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+                <!--PageComponentEnd-->
+                <div class="d-flex gap-1 justify-content-start">
+                    <a class="btn btn-sm btn-success has-tooltip "   title="{{ __('edit') }}" href="<?php print_link("products/edit/$rec_id"); ?>" >
+                    <i class="material-icons">edit</i> {{ __('edit') }}
+                </a>
+                <a class="btn btn-sm btn-danger has-tooltip record-delete-btn" data-prompt-msg="{{ __('promptDeleteRecord') }}" data-display-style="modal" title="{{ __('delete') }}" href="<?php print_link("products/delete/$rec_id?redirect=products"); ?>" >
+                <i class="material-icons">delete_sweep</i> {{ __('delete') }}
+            </a>
         </div>
-        <!-- Detail Page Column -->
-        <?php if(!request()->has('subpage')){ ?>
-        <div class="col-12">
-            <div class="my-3 ">
-                @include("pages.products.detail-pages", ["masterRecordId" => $rec_id])
-            </div>
-        </div>
-        <?php } ?>
     </div>
 </div>
 <?php

@@ -74,7 +74,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 	Route::get('companies', 'CompaniesController@index')->name('companies.index');
 	Route::get('companies/index', 'CompaniesController@index')->name('companies.index');
 	Route::get('companies/index/{filter?}/{filtervalue?}', 'CompaniesController@index')->name('companies.index');	
-	Route::get('companies/view/{rec_id}', 'CompaniesController@view')->name('companies.view');	
+	Route::get('companies/view/{rec_id}', 'CompaniesController@view')->name('companies.view');
+	Route::get('companies/masterdetail/{rec_id}', 'CompaniesController@masterDetail')->name('companies.masterdetail');	
 	Route::any('companies/edit/{rec_id}', 'CompaniesController@edit')->name('companies.edit');	
 	Route::get('companies/delete/{rec_id}', 'CompaniesController@delete');	
 	Route::get('companies/user_list', 'CompaniesController@user_list');
@@ -107,7 +108,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 	Route::get('ledgers', 'LedgersController@index')->name('ledgers.index');
 	Route::get('ledgers/index', 'LedgersController@index')->name('ledgers.index');
 	Route::get('ledgers/index/{filter?}/{filtervalue?}', 'LedgersController@index')->name('ledgers.index');	
-	Route::get('ledgers/view/{rec_id}', 'LedgersController@view')->name('ledgers.view');	
+	Route::get('ledgers/view/{rec_id}', 'LedgersController@view')->name('ledgers.view');
+	Route::get('ledgers/masterdetail/{rec_id}', 'LedgersController@masterDetail')->name('ledgers.masterdetail');	
 	Route::get('ledgers/add', 'LedgersController@add')->name('ledgers.add');
 	Route::post('ledgers/add', 'LedgersController@store')->name('ledgers.store');
 		
@@ -204,21 +206,37 @@ Route::middleware(['auth', 'verified'])->group(function () {
 	Route::any('product_categories/edit/{rec_id}', 'Product_CategoriesController@edit')->name('product_categories.edit');	
 	Route::get('product_categories/delete/{rec_id}', 'Product_CategoriesController@delete');	
 	Route::get('product_categories/comp_product_cat', 'Product_CategoriesController@comp_product_cat');
-	Route::get('product_categories/comp_product_cat/{filter?}/{filtervalue?}', 'Product_CategoriesController@comp_product_cat');
+	Route::get('product_categories/comp_product_cat/{filter?}/{filtervalue?}', 'Product_CategoriesController@comp_product_cat');	
+	Route::get('product_categories/category_add', 'Product_CategoriesController@category_add')->name('product_categories.category_add');
+	Route::post('product_categories/category_add', 'Product_CategoriesController@category_add_store')->name('product_categories.category_add_store');
+		
+	Route::get('product_categories/categories_list', 'Product_CategoriesController@categories_list');
+	Route::get('product_categories/categories_list/{filter?}/{filtervalue?}', 'Product_CategoriesController@categories_list');	
+	Route::any('product_categories/category_edit/{rec_id}', 'Product_CategoriesController@category_edit')->name('product_categories.category_edit');
 
 /* routes for Products Controller */	
 	Route::get('products', 'ProductsController@index')->name('products.index');
 	Route::get('products/index', 'ProductsController@index')->name('products.index');
 	Route::get('products/index/{filter?}/{filtervalue?}', 'ProductsController@index')->name('products.index');	
-	Route::get('products/view/{rec_id}', 'ProductsController@view')->name('products.view');
-	Route::get('products/masterdetail/{rec_id}', 'ProductsController@masterDetail')->name('products.masterdetail');	
+	Route::get('products/view/{rec_id}', 'ProductsController@view')->name('products.view');	
 	Route::get('products/add', 'ProductsController@add')->name('products.add');
 	Route::post('products/add', 'ProductsController@store')->name('products.store');
 		
 	Route::any('products/edit/{rec_id}', 'ProductsController@edit')->name('products.edit');	
 	Route::get('products/delete/{rec_id}', 'ProductsController@delete');	
 	Route::get('products/copm_products', 'ProductsController@copm_products');
-	Route::get('products/copm_products/{filter?}/{filtervalue?}', 'ProductsController@copm_products');
+	Route::get('products/copm_products/{filter?}/{filtervalue?}', 'ProductsController@copm_products');	
+	Route::get('products/product_add1', 'ProductsController@product_add1')->name('products.product_add1');
+	Route::post('products/product_add1', 'ProductsController@product_add1_store')->name('products.product_add1_store');
+		
+	Route::get('products/products_list', 'ProductsController@products_list');
+	Route::get('products/products_list/{filter?}/{filtervalue?}', 'ProductsController@products_list');	
+	Route::get('products/product_add', 'ProductsController@product_add')->name('products.product_add');
+	Route::post('products/product_add', 'ProductsController@product_add_store')->name('products.product_add_store');
+		
+	Route::any('products/product_edit/{rec_id}', 'ProductsController@product_edit')->name('products.product_edit');	
+	Route::get('products/product_view/{rec_id}', 'ProductsController@product_view')->name('products.product_view');	
+	Route::get('products/product_delete/{rec_id}', 'ProductsController@product_delete');
 
 /* routes for Source_Documents Controller */	
 	Route::get('source_documents', 'Source_DocumentsController@index')->name('source_documents.index');
@@ -265,13 +283,20 @@ Route::middleware(['auth', 'verified'])->group(function () {
 	Route::post('units/add', 'UnitsController@store')->name('units.store');
 		
 	Route::any('units/edit/{rec_id}', 'UnitsController@edit')->name('units.edit');	
-	Route::get('units/delete/{rec_id}', 'UnitsController@delete');
+	Route::get('units/delete/{rec_id}', 'UnitsController@delete');	
+	Route::get('units/units_list', 'UnitsController@units_list');
+	Route::get('units/units_list/{filter?}/{filtervalue?}', 'UnitsController@units_list');	
+	Route::get('units/units_add', 'UnitsController@units_add')->name('units.units_add');
+	Route::post('units/units_add', 'UnitsController@units_add_store')->name('units.units_add_store');
+		
+	Route::any('units/unit_edit/{rec_id}', 'UnitsController@unit_edit')->name('units.unit_edit');
 
 /* routes for Users Controller */	
 	Route::get('users', 'UsersController@index')->name('users.index');
 	Route::get('users/index', 'UsersController@index')->name('users.index');
 	Route::get('users/index/{filter?}/{filtervalue?}', 'UsersController@index')->name('users.index');	
-	Route::get('users/view/{rec_id}', 'UsersController@view')->name('users.view');	
+	Route::get('users/view/{rec_id}', 'UsersController@view')->name('users.view');
+	Route::get('users/masterdetail/{rec_id}', 'UsersController@masterDetail')->name('users.masterdetail');	
 	Route::any('account/edit', 'AccountController@edit')->name('account.edit');	
 	Route::get('account', 'AccountController@index');	
 	Route::post('account/changepassword', 'AccountController@changepassword')->name('account.changepassword');	
@@ -397,6 +422,12 @@ Route::get('componentsdata/users_username_value_exist',  function(Request $reque
 		return $compModel->users_username_value_exist($request);
 	}
 );
+	
+Route::get('componentsdata/user_role_id_option_list',  function(Request $request){
+		$compModel = new App\Models\ComponentsData();
+		return $compModel->user_role_id_option_list($request);
+	}
+)->middleware(['auth']);
 
 
 Route::post('fileuploader/upload/{fieldname}', 'FileUploaderController@upload');

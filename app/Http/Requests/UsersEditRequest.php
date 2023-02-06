@@ -37,6 +37,7 @@ class UsersEditRequest extends FormRequest
 				"user_type" => "nullable|string",
 				"is_active" => "nullable",
 				"company_id" => "nullable",
+				"user_role_id" => "nullable",
             
         ];
     }

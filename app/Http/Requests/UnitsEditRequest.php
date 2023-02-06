@@ -28,6 +28,7 @@ class UnitsEditRequest extends FormRequest
 				"name" => "filled|string",
 				"symbol" => "filled|string",
 				"status" => "filled|numeric",
+				"company_id" => "filled|numeric",
             
         ];
     }

@@ -158,4 +158,48 @@ class Product_Categories extends Model
 			"companies.name AS companies_name" 
 		];
 	}
+	
+
+	/**
+     * return categoriesList page fields of the model.
+     * 
+     * @return array
+     */
+	public static function categoriesListFields(){
+		return [ 
+			"product_categories.id AS id",
+			"product_categories.name AS name",
+			"product_categories.is_active AS is_active",
+			"companies.name AS companies_name" 
+		];
+	}
+	
+
+	/**
+     * return exportCategoriesList page fields of the model.
+     * 
+     * @return array
+     */
+	public static function exportCategoriesListFields(){
+		return [ 
+			"product_categories.id AS id",
+			"product_categories.name AS name",
+			"product_categories.is_active AS is_active",
+			"companies.name AS companies_name" 
+		];
+	}
+	
+
+	/**
+     * return categoryEdit page fields of the model.
+     * 
+     * @return array
+     */
+	public static function categoryEditFields(){
+		return [ 
+			"name",
+			"is_active",
+			"id" 
+		];
+	}
 }

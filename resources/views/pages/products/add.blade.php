@@ -120,7 +120,7 @@ e.g $arrDataFromDb = $comp_model->fetchData(); //function name
                                                 $value = $option['value'];
                                                 $label = $option['label'];
                                                 //check if current option is checked option
-                                                $checked = Html::get_field_checked('dead_stock', $value, "Yes");
+                                                $checked = Html::get_field_checked('dead_stock', $value, "No");
                                             ?>
                                             <label class="option-btn">
                                             <input class="btn-check" <?php echo $checked ?>  value="<?php echo $value ?>" type="radio" required=""   name="dead_stock" />

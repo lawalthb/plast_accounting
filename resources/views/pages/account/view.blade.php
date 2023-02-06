@@ -169,45 +169,57 @@ e.g $arrDataFromDb = $comp_model->fetchData(); //function name
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div class="border-top td-user_role_id p-2">
+                                                    <div class="row align-items-center">
+                                                        <div class="col">
+                                                            <div class="text-muted"> {{ __('userRoleId') }}</div>
+                                                            <div class="fw-bold">
+                                                                <a size="sm" class="btn btn-sm btn btn-secondary page-modal" href="<?php print_link("roles/view/$data[user_role_id]?subpage=1") ?>">
+                                                                <i class="material-icons">visibility</i> <?php echo "Roles Detail" ?>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <!--PageComponentEnd-->
-                                            <div class="d-flex gap-1 justify-content-start">
-                                                <a class="btn btn-sm btn-success has-tooltip "   title="{{ __('edit') }}" href="<?php print_link("users/edit/$rec_id"); ?>" >
-                                                <i class="material-icons">edit</i> {{ __('edit') }}
-                                            </a>
-                                            <a class="btn btn-sm btn-danger has-tooltip record-delete-btn" data-prompt-msg="{{ __('promptDeleteRecord') }}" data-display-style="modal" title="{{ __('delete') }}" href="<?php print_link("users/delete/$rec_id?redirect=users"); ?>" >
-                                            <i class="material-icons">delete_sweep</i> {{ __('delete') }}
+                                        </div>
+                                        <!--PageComponentEnd-->
+                                        <div class="d-flex gap-1 justify-content-start">
+                                            <a class="btn btn-sm btn-success has-tooltip "   title="{{ __('edit') }}" href="<?php print_link("users/edit/$rec_id"); ?>" >
+                                            <i class="material-icons">edit</i> {{ __('edit') }}
                                         </a>
-                                    </div>
+                                        <a class="btn btn-sm btn-danger has-tooltip record-delete-btn" data-prompt-msg="{{ __('promptDeleteRecord') }}" data-display-style="modal" title="{{ __('delete') }}" href="<?php print_link("users/delete/$rec_id?redirect=users"); ?>" >
+                                        <i class="material-icons">delete_sweep</i> {{ __('delete') }}
+                                    </a>
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="AccountPageEdit" role="tabpanel">
-                                <div class=" reset-grids">
-                                    <x-sub-page url="{{ url('account/edit') }}"></x-sub-page>
-                                </div>
+                        </div>
+                        <div class="tab-pane fade" id="AccountPageEdit" role="tabpanel">
+                            <div class=" reset-grids">
+                                <x-sub-page url="{{ url('account/edit') }}"></x-sub-page>
                             </div>
-                            <div class="tab-pane fade" id="AccountPageChangePassword" role="tabpanel">
-                                <div class=" reset-grids">
-                                    @include("pages.account.changepassword")
-                                </div>
+                        </div>
+                        <div class="tab-pane fade" id="AccountPageChangePassword" role="tabpanel">
+                            <div class=" reset-grids">
+                                @include("pages.account.changepassword")
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <?php
-                }
-                else{
-            ?>
-            <!-- Empty Record Message -->
-            <div class="text-muted p-3">
-                <i class="material-icons">block</i> {{ __('noRecordFound') }}
-            </div>
-            <?php
-                }
-            ?>
         </div>
+        <?php
+            }
+            else{
+        ?>
+        <!-- Empty Record Message -->
+        <div class="text-muted p-3">
+            <i class="material-icons">block</i> {{ __('noRecordFound') }}
+        </div>
+        <?php
+            }
+        ?>
     </div>
+</div>
 </div>
 </div>
 </div>

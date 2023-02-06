@@ -23,7 +23,7 @@ class Users extends Authenticatable implements MustVerifyEmail
      * @var string
      */
 	protected $primaryKey = 'id';
-	protected $fillable = ['lastname','firstname','email','username','phone','photo','email_verified_at','company_id','role_id','user_type','is_active','password'];
+	protected $fillable = ['lastname','firstname','email','username','phone','photo','email_verified_at','company_id','role_id','user_type','is_active','password','user_role_id'];
 	public $timestamps = false;
 	
 
@@ -72,6 +72,7 @@ class Users extends Authenticatable implements MustVerifyEmail
 			"users.username AS username",
 			"users.role_id AS role_id",
 			"companies.name AS companies_name",
+			"users.user_role_id AS user_role_id",
 			"companies.id AS companies_id" 
 		];
 	}
@@ -91,6 +92,7 @@ class Users extends Authenticatable implements MustVerifyEmail
 			"users.username AS username",
 			"users.role_id AS role_id",
 			"companies.name AS companies_name",
+			"users.user_role_id AS user_role_id",
 			"companies.id AS companies_id" 
 		];
 	}
@@ -124,7 +126,8 @@ class Users extends Authenticatable implements MustVerifyEmail
 			"companies.com_email AS companies_com_email",
 			"companies.com_phone AS companies_com_phone",
 			"companies.signature AS companies_signature",
-			"companies.slogan AS companies_slogan" 
+			"companies.slogan AS companies_slogan",
+			"users.user_role_id AS user_role_id" 
 		];
 	}
 	
@@ -157,7 +160,8 @@ class Users extends Authenticatable implements MustVerifyEmail
 			"companies.com_email AS companies_com_email",
 			"companies.com_phone AS companies_com_phone",
 			"companies.signature AS companies_signature",
-			"companies.slogan AS companies_slogan" 
+			"companies.slogan AS companies_slogan",
+			"users.user_role_id AS user_role_id" 
 		];
 	}
 	
@@ -179,7 +183,8 @@ class Users extends Authenticatable implements MustVerifyEmail
 			"company_id",
 			"username",
 			"email_verified_at",
-			"id" 
+			"id",
+			"user_role_id" 
 		];
 	}
 	
@@ -202,7 +207,8 @@ class Users extends Authenticatable implements MustVerifyEmail
 			"users.is_active AS is_active",
 			"users.company_id AS company_id",
 			"companies.name AS companies_name",
-			"users.username AS username" 
+			"users.username AS username",
+			"users.user_role_id AS user_role_id" 
 		];
 	}
 	
@@ -225,7 +231,8 @@ class Users extends Authenticatable implements MustVerifyEmail
 			"users.is_active AS is_active",
 			"users.company_id AS company_id",
 			"companies.name AS companies_name",
-			"users.username AS username" 
+			"users.username AS username",
+			"users.user_role_id AS user_role_id" 
 		];
 	}
 	
@@ -247,6 +254,7 @@ class Users extends Authenticatable implements MustVerifyEmail
 			"user_type",
 			"is_active",
 			"company_id",
+			"user_role_id",
 			"id" 
 		];
 	}
@@ -265,7 +273,8 @@ class Users extends Authenticatable implements MustVerifyEmail
 			"users.email AS email",
 			"users.role_id AS role_id",
 			"users.username AS username",
-			"companies.id AS companies_id" 
+			"companies.id AS companies_id",
+			"users.user_role_id AS user_role_id" 
 		];
 	}
 	
@@ -283,7 +292,8 @@ class Users extends Authenticatable implements MustVerifyEmail
 			"users.email AS email",
 			"users.role_id AS role_id",
 			"users.username AS username",
-			"companies.id AS companies_id" 
+			"companies.id AS companies_id",
+			"users.user_role_id AS user_role_id" 
 		];
 	}
 	
@@ -305,7 +315,8 @@ class Users extends Authenticatable implements MustVerifyEmail
 			"user_type",
 			"is_active",
 			"company_id",
-			"id" 
+			"id",
+			"user_role_id" 
 		];
 	}
 	

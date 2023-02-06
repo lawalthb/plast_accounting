@@ -55,127 +55,139 @@ e.g $arrDataFromDb = $comp_model->fetchData(); //function name
                 <?php Html::display_page_errors($errors); ?>
                 <div  class=" page-content" >
                     <div id="ledgers-suppliers_list-records">
-                        <div id="page-main-content" class="table-responsive">
-                            <?php Html::page_bread_crumb("/ledgers/suppliers_list", $field_name, $field_value); ?>
-                            <table class="table table-hover table-striped table-sm text-left">
-                                <thead class="table-header ">
-                                    <tr>
-                                        <th class="td-" > </th><th class="td-id" > {{ __('id') }}</th>
-                                        <th class="td-ledger_name" > {{ __('ledgerName') }}</th>
-                                        <th class="td-address" > {{ __('address') }}</th>
-                                        <th class="td-email" > {{ __('email') }}</th>
-                                        <th class="td-contact_person" > {{ __('contactPerson') }}</th>
-                                        <th class="td-credit_amount" > {{ __('creditAmount') }}</th>
-                                        <th class="td-debit_amount" > {{ __('debitAmount') }}</th>
-                                        <th class="td-is_active" > {{ __('isActive') }}</th>
-                                        <th class="td-btn"></th>
-                                    </tr>
-                                </thead>
-                                <?php
-                                    if($total_records){
-                                ?>
-                                <tbody class="page-data">
-                                    <!--record-->
-                                    <?php
-                                        $counter = 0;
-                                        foreach($records as $data){
-                                        $rec_id = ($data['id'] ? urlencode($data['id']) : null);
-                                        $counter++;
-                                    ?>
-                                    <tr>
-                                        <!--PageComponentStart-->
-                                        <td class="td-masterdetailbtn">
-                                            <a data-page-id="ledgers-detail-page" class="btn btn-sm btn-secondary open-master-detail-page" href="<?php print_link("ledgers/masterdetail/$data[id]"); ?>">
-                                            <i class="material-icons">more_vert</i> 
+                        <div class="row gutter-lg ">
+                            <div class="col">
+                                <div id="page-main-content" class="table-responsive">
+                                    <?php Html::page_bread_crumb("/ledgers/suppliers_list", $field_name, $field_value); ?>
+                                    <table class="table table-hover table-striped table-sm text-left">
+                                        <thead class="table-header ">
+                                            <tr>
+                                                <th class="td-" > </th><th class="td-id" > {{ __('id') }}</th>
+                                                <th class="td-ledger_name" > {{ __('ledgerName') }}</th>
+                                                <th class="td-address" > {{ __('address') }}</th>
+                                                <th class="td-email" > {{ __('email') }}</th>
+                                                <th class="td-contact_person" > {{ __('contactPerson') }}</th>
+                                                <th class="td-credit_amount" > {{ __('creditAmount') }}</th>
+                                                <th class="td-debit_amount" > {{ __('debitAmount') }}</th>
+                                                <th class="td-is_active" > {{ __('isActive') }}</th>
+                                                <th class="td-btn"></th>
+                                            </tr>
+                                        </thead>
+                                        <?php
+                                            if($total_records){
+                                        ?>
+                                        <tbody class="page-data">
+                                            <!--record-->
+                                            <?php
+                                                $counter = 0;
+                                                foreach($records as $data){
+                                                $rec_id = ($data['id'] ? urlencode($data['id']) : null);
+                                                $counter++;
+                                            ?>
+                                            <tr>
+                                                <!--PageComponentStart-->
+                                                <td class="td-masterdetailbtn">
+                                                    <a data-page-id="ledgers-detail-page" class="btn btn-sm btn-secondary open-master-detail-page" href="<?php print_link("ledgers/masterdetail/$data[id]"); ?>">
+                                                    <i class="material-icons">more_vert</i> 
+                                                </a>
+                                            </td>
+                                            <td class="td-id">
+                                                <?php echo  $data['id'] ; ?>
+                                            </td>
+                                            <td class="td-ledger_name">
+                                                <?php echo  $data['ledger_name'] ; ?>
+                                            </td>
+                                            <td class="td-address">
+                                                <?php echo  $data['address'] ; ?>
+                                            </td>
+                                            <td class="td-email">
+                                                <a href="<?php print_link("mailto:$data[email]") ?>"><?php echo $data['email']; ?></a>
+                                            </td>
+                                            <td class="td-contact_person">
+                                                <?php echo  $data['contact_person'] ; ?>
+                                            </td>
+                                            <td class="td-credit_amount">
+                                                <?php echo  $data['credit_amount'] ; ?>
+                                            </td>
+                                            <td class="td-debit_amount">
+                                                <?php echo  $data['debit_amount'] ; ?>
+                                            </td>
+                                            <td class="td-is_active">
+                                                <?php echo  $data['is_active'] ; ?>
+                                            </td>
+                                            <!--PageComponentEnd-->
+                                            <td class="td-btn">
+                                                <a class="btn btn-sm btn-success has-tooltip "    href="<?php print_link("ledgers/suppliers_edit/$rec_id"); ?>" >
+                                                <i class="material-icons">edit</i> {{ __('edit') }}
+                                            </a>
+                                            <a class="btn btn-sm btn-danger has-tooltip record-delete-btn" data-prompt-msg="{{ __('promptDeleteRecord') }}" data-display-style="modal"  href="<?php print_link("ledgers/delete/$rec_id"); ?>" >
+                                            <i class="material-icons">delete_sweep</i> {{ __('delete') }}
                                         </a>
                                     </td>
-                                    <td class="td-id">
-                                        <?php echo  $data['id'] ; ?>
+                                </tr>
+                                <?php 
+                                    }
+                                ?>
+                                <!--endrecord-->
+                            </tbody>
+                            <tbody class="search-data"></tbody>
+                            <?php
+                                }
+                                else{
+                            ?>
+                            <tbody class="page-data">
+                                <tr>
+                                    <td class="bg-light text-center text-muted animated bounce p-3" colspan="1000">
+                                        <i class="material-icons">block</i> {{ __('noRecordFound') }}
                                     </td>
-                                    <td class="td-ledger_name">
-                                        <?php echo  $data['ledger_name'] ; ?>
-                                    </td>
-                                    <td class="td-address">
-                                        <?php echo  $data['address'] ; ?>
-                                    </td>
-                                    <td class="td-email">
-                                        <a href="<?php print_link("mailto:$data[email]") ?>"><?php echo $data['email']; ?></a>
-                                    </td>
-                                    <td class="td-contact_person">
-                                        <?php echo  $data['contact_person'] ; ?>
-                                    </td>
-                                    <td class="td-credit_amount">
-                                        <?php echo  $data['credit_amount'] ; ?>
-                                    </td>
-                                    <td class="td-debit_amount">
-                                        <?php echo  $data['debit_amount'] ; ?>
-                                    </td>
-                                    <td class="td-is_active">
-                                        <?php echo  $data['is_active'] ; ?>
-                                    </td>
-                                    <!--PageComponentEnd-->
-                                    <td class="td-btn">
-                                        <a class="btn btn-sm btn-success has-tooltip "    href="<?php print_link("ledgers/suppliers_edit/$rec_id"); ?>" >
-                                        <i class="material-icons">edit</i> {{ __('edit') }}
-                                    </a>
-                                    <a class="btn btn-sm btn-danger has-tooltip record-delete-btn" data-prompt-msg="{{ __('promptDeleteRecord') }}" data-display-style="modal"  href="<?php print_link("ledgers/delete/$rec_id"); ?>" >
-                                    <i class="material-icons">delete_sweep</i> {{ __('delete') }}
-                                </a>
-                            </td>
-                        </tr>
-                        <?php 
-                            }
-                        ?>
-                        <!--endrecord-->
-                    </tbody>
-                    <tbody class="search-data"></tbody>
+                                </tr>
+                            </tbody>
+                            <?php
+                                }
+                            ?>
+                        </table>
+                    </div>
                     <?php
-                        }
-                        else{
+                        if($show_footer){
                     ?>
-                    <tbody class="page-data">
-                        <tr>
-                            <td class="bg-light text-center text-muted animated bounce p-3" colspan="1000">
-                                <i class="material-icons">block</i> {{ __('noRecordFound') }}
-                            </td>
-                        </tr>
-                    </tbody>
-                    <?php
-                        }
-                    ?>
-                </table>
-            </div>
-            <?php
-                if($show_footer){
-            ?>
-            <div class=" mt-3">
-                <div class="row align-items-center justify-content-between">    
-                    <div class="col-md-auto justify-content-center">    
-                        <div class="d-flex justify-content-start">  
-                            <button data-prompt-msg="{{ __('promptDeleteRecords') }}" data-display-style="modal" data-url="<?php print_link("ledgers/delete/{sel_ids}"); ?>" class="btn btn-sm btn-danger btn-delete-selected d-none">
-                            <i class="material-icons">delete_sweep</i> {{ __('deleteSelected') }}
-                            </button>
+                    <div class=" mt-3">
+                        <div class="row align-items-center justify-content-between">    
+                            <div class="col-md-auto justify-content-center">    
+                                <div class="d-flex justify-content-start">  
+                                    <button data-prompt-msg="{{ __('promptDeleteRecords') }}" data-display-style="modal" data-url="<?php print_link("ledgers/delete/{sel_ids}"); ?>" class="btn btn-sm btn-danger btn-delete-selected d-none">
+                                    <i class="material-icons">delete_sweep</i> {{ __('deleteSelected') }}
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col">   
+                                <?php
+                                    if($show_pagination == true){
+                                    $pager = new Pagination($total_records, $record_count);
+                                    $pager->show_page_count = false;
+                                    $pager->show_record_count = true;
+                                    $pager->show_page_limit =false;
+                                    $pager->limit = $limit;
+                                    $pager->show_page_number_list = true;
+                                    $pager->pager_link_range=5;
+                                    $pager->render();
+                                    }
+                                ?>
+                            </div>
                         </div>
                     </div>
-                    <div class="col">   
-                        <?php
-                            if($show_pagination == true){
-                            $pager = new Pagination($total_records, $record_count);
-                            $pager->show_page_count = false;
-                            $pager->show_record_count = true;
-                            $pager->show_page_limit =false;
-                            $pager->limit = $limit;
-                            $pager->show_page_number_list = true;
-                            $pager->pager_link_range=5;
-                            $pager->render();
-                            }
-                        ?>
+                    <?php
+                        }
+                    ?>
+                </div>
+                <!-- Detail Page Column -->
+                <?php if(!request()->has('subpage')){ ?>
+                <div class="col-12">
+                    <div class=" ">
+                        <div id="ledgers-detail-page" class="master-detail-page"></div>
                     </div>
                 </div>
+                <?php } ?>
             </div>
-            <?php
-                }
-            ?>
         </div>
     </div>
 </div>

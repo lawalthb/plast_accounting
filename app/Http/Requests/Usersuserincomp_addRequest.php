@@ -31,6 +31,7 @@ class Usersuserincomp_addRequest extends FormRequest
 				"username" => "required|string|unique:users,username",
 				"phone" => "nullable|string",
 				"company_id" => "nullable",
+				"user_role_id" => "nullable",
             
         ];
     }

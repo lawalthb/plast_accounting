@@ -28,6 +28,7 @@ class UnitsAddRequest extends FormRequest
 				"name" => "required|string",
 				"symbol" => "required|string",
 				"status" => "required|numeric",
+				"company_id" => "required|numeric",
             
         ];
     }

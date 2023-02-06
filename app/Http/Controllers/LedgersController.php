@@ -56,6 +56,16 @@ class LedgersController extends Controller
 	
 
 	/**
+     * Display Master Detail Pages
+	 * @param string $rec_id //master record id
+     * @return \Illuminate\View\View
+     */
+	function masterDetail($rec_id = null){
+		return View("pages.ledgers.detail-pages", ["masterRecordId" => $rec_id]);
+	}
+	
+
+	/**
      * Display form page
      * @return \Illuminate\View\View
      */

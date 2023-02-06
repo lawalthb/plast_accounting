@@ -173,8 +173,9 @@ $query_params['comID'] = auth()->user()->company_id;
      * @return array
      */
 	function unit_option_list(){
-		$sqltext = "SELECT id as value, name as label FROM units";
+		$sqltext = "SELECT id as value, name as label FROM units  WHERE company_id=:comID" ;
 		$query_params = [];
+		$query_params['comID'] = auth()->user()->company_id;
 		$arr = DB::select(DB::raw($sqltext), $query_params);
 		return $arr;
 	}
@@ -243,5 +244,17 @@ $query_params['comID'] = auth()->user()->company_id;
 			return true;
 		}
 		return false;
+	}
+	
+
+	/**
+     * user_role_id_option_list Model Action
+     * @return array
+     */
+	function user_role_id_option_list(){
+		$sqltext = "SELECT role_id AS value, role_name AS label FROM roles";
+		$query_params = [];
+		$arr = DB::select(DB::raw($sqltext), $query_params);
+		return $arr;
 	}
 }

@@ -79,6 +79,18 @@ e.g $arrDataFromDb = $comp_model->fetchData(); //function name
                                         </div>
                                     </div>
                                 </div>
+                                <div class="form-group ">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label class="control-label" for="company_id">{{ __('companyId') }} <span class="text-danger">*</span></label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <div id="ctrl-company_id-holder" class=" ">
+                                                <input id="ctrl-company_id" data-field="company_id"  value="<?php echo get_value('company_id') ?>" type="number" placeholder="{{ __('enterCompanyId') }}" step="any"  required="" name="company_id"  class="form-control " />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="form-ajax-status"></div>
                             <!--[form-button-start]-->

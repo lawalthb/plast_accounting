@@ -28,7 +28,7 @@ class Units extends Model
      * @var array
      */
 	protected $fillable = [
-		'name','symbol','status'
+		'name','symbol','status','company_id'
 	];
 	public $timestamps = false;
 	
@@ -62,7 +62,8 @@ class Units extends Model
 			"id",
 			"name",
 			"symbol",
-			"status" 
+			"status",
+			"company_id" 
 		];
 	}
 	
@@ -77,7 +78,8 @@ class Units extends Model
 			"id",
 			"name",
 			"symbol",
-			"status" 
+			"status",
+			"company_id" 
 		];
 	}
 	
@@ -92,7 +94,8 @@ class Units extends Model
 			"id",
 			"name",
 			"symbol",
-			"status" 
+			"status",
+			"company_id" 
 		];
 	}
 	
@@ -107,7 +110,8 @@ class Units extends Model
 			"id",
 			"name",
 			"symbol",
-			"status" 
+			"status",
+			"company_id" 
 		];
 	}
 	
@@ -119,10 +123,57 @@ class Units extends Model
      */
 	public static function editFields(){
 		return [ 
-			"id",
 			"name",
 			"symbol",
-			"status" 
+			"status",
+			"id",
+			"company_id" 
+		];
+	}
+	
+
+	/**
+     * return unitsList page fields of the model.
+     * 
+     * @return array
+     */
+	public static function unitsListFields(){
+		return [ 
+			"name",
+			"symbol",
+			"status",
+			"id" 
+		];
+	}
+	
+
+	/**
+     * return exportUnitsList page fields of the model.
+     * 
+     * @return array
+     */
+	public static function exportUnitsListFields(){
+		return [ 
+			"name",
+			"symbol",
+			"status",
+			"id" 
+		];
+	}
+	
+
+	/**
+     * return unitEdit page fields of the model.
+     * 
+     * @return array
+     */
+	public static function unitEditFields(){
+		return [ 
+			"name",
+			"symbol",
+			"status",
+			"company_id",
+			"id" 
 		];
 	}
 }

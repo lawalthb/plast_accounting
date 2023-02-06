@@ -211,4 +211,120 @@ class Products extends Model
 			"units.name AS units_name" 
 		];
 	}
+	
+
+	/**
+     * return productsList page fields of the model.
+     * 
+     * @return array
+     */
+	public static function productsListFields(){
+		return [ 
+			"name",
+			"category",
+			"qty",
+			"selling_price",
+			"purchase_price",
+			"unit",
+			"id" 
+		];
+	}
+	
+
+	/**
+     * return exportProductsList page fields of the model.
+     * 
+     * @return array
+     */
+	public static function exportProductsListFields(){
+		return [ 
+			"name",
+			"category",
+			"qty",
+			"selling_price",
+			"purchase_price",
+			"unit",
+			"id" 
+		];
+	}
+	
+
+	/**
+     * return productEdit page fields of the model.
+     * 
+     * @return array
+     */
+	public static function productEditFields(){
+		return [ 
+			"category",
+			"name",
+			"unit",
+			"qty",
+			"selling_price",
+			"purchase_price",
+			"dead_stock",
+			"is_active",
+			"user_id",
+			"exp_date",
+			"mfg_date",
+			"image",
+			"id" 
+		];
+	}
+	
+
+	/**
+     * return productView page fields of the model.
+     * 
+     * @return array
+     */
+	public static function productViewFields(){
+		return [ 
+			"products.id AS id",
+			"products.name AS name",
+			"products.category AS category",
+			"product_categories.name AS product_categories_name",
+			"products.image AS image",
+			"products.mfg_date AS mfg_date",
+			"products.exp_date AS exp_date",
+			"products.qty AS qty",
+			"products.selling_price AS selling_price",
+			"products.purchase_price AS purchase_price",
+			"products.dead_stock AS dead_stock",
+			"products.is_active AS is_active",
+			"products.user_id AS user_id",
+			"users.username AS users_username",
+			"products.unit AS unit",
+			"units.name AS units_name",
+			"products.company_id AS company_id" 
+		];
+	}
+	
+
+	/**
+     * return exportProductView page fields of the model.
+     * 
+     * @return array
+     */
+	public static function exportProductViewFields(){
+		return [ 
+			"products.id AS id",
+			"products.name AS name",
+			"products.category AS category",
+			"product_categories.name AS product_categories_name",
+			"products.image AS image",
+			"products.mfg_date AS mfg_date",
+			"products.exp_date AS exp_date",
+			"products.qty AS qty",
+			"products.selling_price AS selling_price",
+			"products.purchase_price AS purchase_price",
+			"products.dead_stock AS dead_stock",
+			"products.is_active AS is_active",
+			"products.user_id AS user_id",
+			"users.username AS users_username",
+			"products.unit AS unit",
+			"units.name AS units_name",
+			"products.company_id AS company_id" 
+		];
+	}
 }
